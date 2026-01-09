@@ -76,7 +76,7 @@ Before running **Anon Browser**, ensure the following software is installed:
 * **Windows Build Tools (optional but recommended)**
 
 ---
-
+````
 ## Auto-Setup Script (Windows)
 
 We include a **setup script** that will automatically check and install missing dependencies.  
