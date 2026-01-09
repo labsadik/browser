@@ -1,5 +1,5 @@
 
-````markdown
+
 # Anon Browser
 
 **Anon Browser** is a lightweight, privacy-focused web browser built using **Electron**. It supports multiple tabs, bookmarks, history, downloads management, SSL certificate inspection, and developer tools integration, making it ideal for secure browsing with a simple and intuitive interface.
