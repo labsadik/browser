@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self' https: data: blob:;
+          script-src 'self' 'unsafe-inline' https:;
+          style-src 'self' 'unsafe-inline' https:;
+          img-src 'self' data: blob: https:;
+          connect-src 'self' https: wss: data: blob:;
+          frame-src 'self' blob: data: https:;
+          object-src 'none';
+          base-uri 'self';
+          form-action 'self';
+        ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anon</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top tabs bar -->
+  <div id="top-tabs-bar">
+    <div id="tabs" role="tablist" aria-label="Tabs"></div>
+    <div id="window-buttons" aria-hidden="true">
+      <button id="min-btn" title="Minimize">─</button>
+      <button id="max-btn" title="Maximize">▢</button>
+      <button id="close-btn" title="Close">✖</button>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div id="toolbar">
+    <div id="nav-left">
+      <button id="back-btn" title="Back">◀</button>
+      <button id="forward-btn" title="Forward">▶</button>
+      <button id="reload-btn" title="Reload">↺</button>
+    </div>
+
+    <div id="omnibox">
+      <span id="lock-icon" title="Connection status">🔒</span>
+      <img id="url-favicon" src="./icons/default-favicon.png" alt="favicon">
+      <input id="url-input" type="text" placeholder="Search with Brave or enter URL" autocomplete="off" />
+    </div>
+
+    <div id="right-controls">
+
+      <button id="new-tab-btn" title="New Tab">🔖</button>
+      <div style="position:relative;">
+        <button id="bookmark-btn" title="Bookmark">📕</button>
+
+        <!-- BOOKMARK POPUP (floating under bookmark button) -->
+        <div id="bookmark-popup" class="popup hidden" aria-hidden="true">
+          <div class="popup-header">
+            <strong>Bookmarks</strong>
+            <button id="close-bookmark-popup">✖</button>
+          </div>
+          <div id="bookmark-list" class="popup-body">
+            <!-- items injected here -->
+          </div>
+          <div class="popup-footer">
+            <button id="clear-bookmarks">Clear</button>
+            <button id="add-bookmark" title="Add current page">Add</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <button id="downloads-btn" title="Downloads">📁</button>
+      <button id="history-btn" title="History">⌛</button>
+      <button id="devtools-btn" title="Toggle DevTools (main)">⽮</button>
+    </div>
+  </div>
+
+
+
+  <!-- downloads panel -->
+  <div id="downloads-panel" class="panel hidden">
+    <div class="panel-header">
+      <h3>Downloads</h3>
+      <button id="close-downloads">✖</button>
+    </div>
+    <div id="downloads-list" class="panel-body"></div>
+    <div class="panel-footer">
+      <button id="clear-downloads">Clear</button>
+    </div>
+  </div>
+
+  <!-- history panel -->
+  <div id="history-panel" class="panel hidden">
+    <div class="panel-header">
+      <h3>History</h3>
+      <button id="close-history">✖</button>
+    </div>
+    <div id="history-list" class="panel-body"></div>
+    <div class="panel-footer">
+      <button id="clear-history">Clear History</button>
+    </div>
+  </div>
+
+  <!-- cert popover -->
+  <div id="cert-popover" class="panel hidden">
+    <div class="panel-header">
+      <strong>Connection</strong>
+      <button id="close-cert">✖</button>
+    </div>
+    <div id="cert-status" class="panel-body"></div>
+    <pre id="cert-info" class="panel-body"></pre>
+  </div>
+
+  <!-- view container with webviews -->
+  <div id="view-container"></div>
+
+
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
